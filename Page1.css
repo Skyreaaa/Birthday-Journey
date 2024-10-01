@@ -1,0 +1,665 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  font-family: "poppins";
+}
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.audio-player {
+  position: fixed;
+  bottom: 20px; /* Jarak dari bawah */
+  left: 20px; /* Jarak dari kiri */
+  background-color: #725848; /* Latar belakang */
+  border-radius: 8px; /* Sudut melengkung */
+  padding: 10px 15px; /* Padding */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Bayangan */
+  display: flex; /* Menggunakan flexbox */
+  align-items: center; /* Pusatkan elemen secara vertikal */
+  z-index: 998;
+}
+
+.play-pause,
+.stop {
+  background-color: #b59683; /* Warna tombol */
+  border: none; /* Menghilangkan border */
+  color: white; /* Warna teks */
+  font-size: 1.5rem; /* Ukuran font */
+  padding: 5px 10px; /* Padding tombol */
+  border-radius: 5px; /* Sudut tombol melengkung */
+  cursor: pointer; /* Pointer saat hover */
+  margin-right: 10px; /* Jarak antara tombol */
+
+  transition: background-color 0.3s, transform 0.3s; /* Transisi untuk latar belakang dan transformasi */
+}
+
+.play-pause:hover,
+.stop:hover {
+  background-color: #a28576; /* Warna saat hover */
+  transform: scale(1.1); /* Sedikit memperbesar tombol saat hover */
+}
+
+.progress-container {
+  flex: 1; /* Membiarkan kontainer progres mengisi ruang */
+  background-color: #ddd; /* Warna latar belakang progres */
+  border-radius: 5px; /* Sudut melengkung */
+  height: 10px; /* Tinggi progres */
+}
+
+.progress-bar {
+  background-color: #b59683; /* Warna batang progres */
+  height: 100%; /* Tinggi sama dengan kontainer */
+  width: 0%; /* Mulai dari 0% */
+  border-radius: 5px; /* Sudut melengkung */
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 7%;
+  background-color: rgba(97, 81, 71, 0.8);
+  border-bottom: 1px #231a18;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.navbar-title span {
+  color: #b59683;
+}
+
+.navbar .navbar-nav a {
+  color: #ffffff;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: #b59683;
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid #ffffff;
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-icon a {
+  color: #ffffff;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-icon a:hover {
+  color: #b59683;
+}
+
+#list-menu {
+  display: none;
+}
+
+/* NAVBAR DONE */
+
+/* CONTENT 1 */
+.content {
+  position: relative;
+  height: 100vh;
+  background-image: url(Background\ pict\ 1.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 5vw;
+  font-size: clamp(24px, 5vw, 48px); /* Ukuran heading antara 24px - 48px */
+  margin-left: 7rem;
+  color: #ffffff;
+}
+
+.p-content {
+  top: 1rem;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  font-weight: 400;
+  padding-right: 3rem;
+  font-family: "poppins";
+  z-index: 3;
+  color: #ffffff;
+  margin-left: 7rem;
+}
+p {
+  font-size: 2vw;
+  font-size: clamp(16px, 2vw, 24px);
+}
+
+.content-container {
+  font-family: "poppins";
+  letter-spacing: 0.4rem;
+  padding-right: 1.2rem 5%;
+  font-size: 10px;
+  font-weight: 700;
+  z-index: 3;
+}
+
+/* CONTENT 1 DONE */
+
+/* CONTENT 2 */
+
+.content-dua {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #634d42;
+  padding-bottom: 5%;
+}
+
+.container-image {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.h2-section {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 2rem;
+  font-size: 4rem;
+  color: #634d42;
+  z-index: 10;
+}
+
+.pict-section2 {
+  width: 22%;
+  max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.2);
+  margin: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 3px solid #634d42;
+}
+
+.pict-section2 img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.pict-section2:hover img {
+  transform: scale(1.02); /* Membesarkan gambar sedikit */
+  filter: blur(2px); /* Mengubah gambar menjadi buram */
+}
+
+.image-content {
+  padding: 16px;
+}
+
+.image-content {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.image-content p {
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.image-content {
+  bottom: 10px; /* Jarak dari bawah */
+  left: 10px; /* Jarak dari kiri */
+  color: #fff; /* Warna teks agar terlihat kontras */
+  z-index: 1; /* Pastikan teks di atas gambar */
+  transition: color 0.3s ease; /* Transisi untuk efek warna (jika diinginkan) */
+}
+
+.pict-section2:hover .image-content {
+  color: #533f18; /* Tetap warna teks putih saat hover */
+}
+
+/* SECTION 2 DONE */
+
+/* SECTION 2 #2 */
+
+.content-dua {
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* Menyebarkan elemen secara horizontal */
+  align-items: flex-start; /* Menyelaraskan elemen ke atas */
+  margin-top: 100px; /* Jarak dari bagian atas */
+  flex-wrap: wrap; /* Membungkus elemen jika diperlukan */
+}
+
+.content-dua h1 {
+  margin-left: 35%;
+  margin-top: -3%;
+}
+
+.container-image2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%; /* Pastikan kontainer memenuhi lebar */
+}
+
+.lyric-section {
+  position: relative;
+  width: auto;
+  max-width: 500px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.2);
+}
+
+.lyric-section img {
+  width: 80%; /* Ukuran gambar lyric lebih kecil */
+  height: auto;
+}
+
+.image-content2 {
+  text-align: center; /* Pusatkan teks */
+}
+
+.image-content2 p {
+  font-size: 1rem;
+  text-align: justify;
+  font-size: 1rem;
+  margin-top: 10px; /* Jarak antara gambar dan paragraf */
+  margin: 10px;
+}
+
+.flower-section {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 40%; /* Ukuran lebih besar untuk flower section */
+  margin: 20px; /* Jarak antar section */
+}
+
+.flower-section img {
+  width: 100%; /* Gambar responsif */
+  height: auto;
+  margin-top: 8%;
+}
+
+.flower-section .image-content {
+  position: absolute; /* Memungkinkan teks berada di atas gambar */
+  top: 10px; /* Jarak dari atas gambar */
+  left: 50%; /* Pusatkan secara horizontal */
+  transform: translateX(-50%); /* Pindahkan ke kiri 50% dari lebar sendiri */
+}
+
+.us-section {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 35%; /* Ukuran lebih kecil untuk us section */
+  margin: 20px; /* Jarak antar section */
+}
+
+.us-section img {
+  width: 90%; /* Ukuran gambar us section */
+  height: auto;
+}
+
+.us-section .image-content {
+  text-align: center; /* Pusatkan teks di bawah gambar */
+}
+
+/* SECTION2 DONE */
+
+/* SECTION 3 */
+
+.content-tiga {
+  display: flex;
+  flex-direction: column; /* Susun konten dalam kolom */
+  align-items: center; /* Pusatkan konten */
+  margin-top: 50px; /* Jarak dari bagian atas */
+}
+
+.section-heading {
+  font-size: 3rem; /* Ukuran font heading */
+  color: #634d42; /* Warna teks heading */
+  margin-bottom: 20px; /* Jarak bawah heading */
+}
+
+.container-tiga {
+  display: flex;
+  flex-wrap: wrap; /* Membungkus card jika diperlukan */
+  width: 100%; /* Pastikan kontainer memenuhi lebar */
+  background-color: #f9f9f9; /* Warna latar belakang card */
+}
+
+.card {
+  display: flex;
+  align-items: center; /* Pusatkan elemen secara vertikal */
+  justify-content: space-between;
+  width: calc(
+    50% - 20px
+  ); /* Lebar card (50% dari kontainer) dikurangi margin */
+  background-color: #634d42; /* Warna latar belakang section */
+  margin: 10px; /* Jarak antar card */
+  border-radius: 8px; /* Sudut melengkung */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan pada card */
+  overflow: hidden;
+  position: relative;
+}
+
+.card h2 {
+  white-space: nowrap; /* Cegah teks heading berpindah ke baris berikutnya */
+  overflow: hidden; /* Sembunyikan teks yang berlebih */
+  text-overflow: ellipsis; /* Tambahkan tiga titik (...) jika teks terlalu panjang */
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center; /* Memastikan heading di tengah */
+  padding: 10px; /* Tambahkan padding jika diperlukan */
+}
+.Heading-card2 {
+  font-size: 2rem;
+  top: 5%;
+  left: 50%;
+  position: absolute; /* Posisi absolut agar bisa diposisikan di atas card */
+  transform: translateX(-50%); /* Pindahkan ke kiri setengah lebar elemen */
+  color: #ffffff; /* Warna teks heading */
+}
+
+.card-image {
+  width: 30%; /* Membuat gambar mengisi lebar container */
+  aspect-ratio: 1 / 1; /* Menjaga rasio 1:1 */
+  object-fit: cover; /* Memastikan gambar terpotong dengan baik */
+  border-radius: 8px 0 0 8px;
+}
+
+.card p {
+  color: #f9f9f9;
+  font-size: 1.2rem;
+  text-align: left;
+  line-height: 1.6; /* Menambahkan jarak antar-baris */
+  padding: 10px; /* Memberikan padding jika perlu */
+  margin: 0 10; /* Jika ada margin bawaan, bisa diatur di sini */
+}
+
+/* SECTION 3 DONE */
+
+/* CONTENT 4 */
+.photo-text-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 7%;
+  background-color: #231a18;
+}
+
+/* Kontainer untuk gambar */
+.image-container {
+  flex: 1; /* Membuat ukuran gambar menyesuaikan */
+  margin-right: 2rem; /* Jarak antara gambar dan teks */
+}
+
+.image-container img {
+  width: 200%; /* Gambar akan menyesuaikan lebar kontainer */
+  height: auto; /* Mempertahankan aspek rasio */
+  max-width: 400px; /* Batas maksimal ukuran gambar */
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Kontainer untuk teks */
+.text-container {
+  font-size: 1rem;
+  text-align: justify;
+  flex: 2; /* Membuat teks lebih luas dibanding gambar */
+}
+
+.text-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.text-container p {
+  font-size: 1.2rem;
+  color: #cecece;
+  line-height: 1.6;
+}
+
+/* CONTENT 4 DONE */
+
+/* FOOTER */
+
+.footer-birthday {
+  background-color: #725848;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.footer-content h2 {
+  margin-bottom: px;
+  font-size: 2rem;
+}
+
+.footer-content p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Footer bagian bawah */
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  border-top: 1px solid #231a18;
+  padding-top: 15px;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .footer-birthday {
+    padding: 30px 10px;
+  }
+
+  .footer-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+#list-menu {
+  display: inline-block;
+}
+
+/* mobile */
+
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+
+  @media (max-width: 768px) {
+    .navbar .navbar-nav {
+      position: absolute;
+      top: 100%; /* Tempatkan di bawah navbar */
+      right: -100%; /* Sembunyikan di luar layar */
+      background-color: #231a18fd;
+      width: 30rem;
+      height: 100vh;
+      transition: right 0.8s ease; /* Transisi untuk efek halus */
+    }
+
+    .navbar .navbar-nav.active {
+      right: 0;
+    }
+
+    .navbar .navbar-nav a {
+      color: #f9f9f9;
+      display: block;
+      margin: 1.5rem;
+      padding: 0.5rem;
+      font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a:hover:after {
+      transform-origin: 0 0;
+    }
+
+    .navbar .navbar-nav a:hover:after {
+      transform: scaleX(0.2);
+    }
+
+    .pict-section2 {
+      width: 35%; /* Lebar 90% dari kontainer untuk mobile */
+      max-width: none;
+      margin: 5px;
+    }
+  }
+
+  .h2-section {
+    position: relative;
+    text-align: center;
+    font-size: 4rem;
+    right: 15%;
+    top: 10%;
+  }
+
+  .image-content2 {
+    text-align: center;
+  }
+  .content-dua2 {
+    flex-direction: column; /* Ubah menjadi kolom pada layar kecil */
+    align-items: center; /* Pusatkan konten */
+  }
+
+  .lyric-section,
+  .flower-section,
+  .us-section {
+    width: 90%; /* Lebar lebih besar di layar kecil */
+    margin: 10px auto; /* Pusatkan dengan margin otomatis */
+  }
+
+  .lyric-section img,
+  .us-section img {
+    width: 80%; /* Ukuran lebih kecil di mobile untuk lyric dan us sections */
+  }
+
+  .flower-section img {
+    width: 100%; /* Gambar flower responsif di mobile */
+  }
+
+  .image-content2 h3,
+  .image-content2 p {
+    font-size: 0.7rem; /* Ukuran font lebih kecil di mobile */
+    text-align: center;
+  }
+
+  .card {
+    width: calc(100% - 20px); /* Full width on small screens */
+    margin-bottom: 20px; /* Space below each card */
+    padding: 10px; /* Add padding inside cards for better spacing */
+    box-shadow: none; /* Optional: Remove shadow on smaller screens for a flatter look */
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    flex-grow: 1; /* Allow cards to grow if necessary */
+    min-height: auto; /* Remove fixed height constraints */
+  }
+
+  .Heading-card2 {
+    font-size: 1rem; /* Smaller font size for headings on small screens */
+    margin-bottom: 10px; /* Space below heading to separate from paragraph */
+  }
+
+  .card p {
+    font-size: 1rem; /* Smaller font size for paragraphs on small screens */
+    padding-left: 10px;
+    padding-right: 10px;
+    word-wrap: break-word; /* Allow long words to break and wrap onto the next line */
+  }
+
+  .photo-text-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-container,
+  .text-container {
+    flex-basis: 100%; /* Mengambil 100% lebar pada layar kecil */
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1rem;
+    text-align: justify; /* Tetap rata kanan dan kiri di layar kecil */
+  }
+
+  .image-container img {
+    max-width: 90%; /* Gambar lebih kecil agar sesuai layar */
+  }
+}
+
+#list-menu {
+  display: inline-block;
+}

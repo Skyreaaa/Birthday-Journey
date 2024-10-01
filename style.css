@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* Warna latar belakang putih */
+}
+
+.profile-container {
+  max-width: 400px; /* Lebar maksimum kontainer */
+  margin: 50px auto; /* Pusatkan kontainer secara horizontal */
+  padding: 20px;
+  background-color: #231a18; /* Warna latar belakang hitam */
+  color: #ffffff; /* Warna teks putih */
+  border-radius: 8px; /* Sudut melengkung */
+  border: 2px solid #ffffff; /* Border putih di sekeliling kontainer */
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column; /* Mengatur elemen dalam kolom */
+  align-items: center; /* Pusatkan gambar dan nama secara horizontal */
+}
+
+.profile-image {
+  width: 80%; /* Ukuran foto lingkaran (80% dari lebar kontainer) */
+  height: auto; /* Mempertahankan rasio aspek */
+  border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+}
+
+h1 {
+  font-size: 24px; /* Ukuran font untuk nama */
+  margin-top: 10px; /* Jarak atas untuk nama */
+}
+
+h3 {
+  margin-top: 20px; /* Jarak atas untuk subheading */
+}
+
+.likes-list {
+  list-style-type: none; /* Menghilangkan bullet pada list */
+}
+
+.likes-list li {
+  margin-bottom: 5px; /* Jarak antar item dalam list */
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.contact-link i {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.contact-link:hover {
+  color: #b59683; /* Warna saat hover */
+}
